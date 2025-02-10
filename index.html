@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جوان فیت | بدنسازی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- نوار بالای سایت -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">جوان فیت | بدنسازی</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">برنامه تمرین بدنسازی</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">برنامه تغذیه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ارتباط با ما</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light text-white" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">ورود / ثبت نام</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- اسلایدر تصاویر -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="slider1.jpg" class="d-block w-100" alt="تمرین بدنسازی">
+            </div>
+            <div class="carousel-item">
+                <img src="slider2.jpg" class="d-block w-100" alt="تغذیه ورزشی">
+            </div>
+            <div class="carousel-item">
+                <img src="slider3.jpg" class="d-block w-100" alt="سبک زندگی سالم">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <!-- بخش پست‌ها -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card post-card">
+                    <img src="post1.jpg" class="card-img-top" alt="پست ورزشی">
+                    <div class="card-body">
+                        <h5 class="card-title">تمرین سخت امروز!</h5>
+                        <p class="card-text">با تمرین مداوم به بهترین نسخه خودتان تبدیل شوید</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-danger"><i class="fas fa-heart"></i> ثبت نام</button>
+                            <button class="btn btn-secondary"><i class="fas fa-comment"></i> ورود</button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-telegram"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- فرم ورود و ثبت نام -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">ورود / ثبت نام</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailOrPhone" class="form-label">ایمیل یا موبایل</label>
+                            <input type="text" class="form-control" id="emailOrPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">رمز عبور</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">ورود</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
