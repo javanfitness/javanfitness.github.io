@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه تغذیه بدنسازی</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <h2>برنامه تغذیه برای بدنسازی</h2>
+        
+        <!-- دکمه‌های تب‌بندی -->
+        <div class="tabs">
+            <button class="tab-button" onclick="showTab('breakfast')">🍳 صبحانه</button>
+            <button class="tab-button" onclick="showTab('lunch')">🍗 ناهار</button>
+            <button class="tab-button" onclick="showTab('dinner')">🥩 شام</button>
+        </div>
+
+        <!-- محتوای هر تب -->
+        <div id="breakfast" class="tab-content">
+            <h3>🍳 صبحانه</h3>
+            <ul>
+                <li>۳ عدد سفیده تخم‌مرغ + ۱ عدد زرده</li>
+                <li>جو دوسر + عسل + موز</li>
+                <li>یک لیوان شیر کم‌چرب</li>
+            </ul>
+        </div>
+
+        <div id="lunch" class="tab-content" style="display: none;">
+            <h3>🍗 ناهار</h3>
+            <ul>
+                <li>۲۰۰ گرم سینه مرغ گریل شده</li>
+                <li>۱ لیوان برنج قهوه‌ای</li>
+                <li>یک بشقاب سالاد با روغن زیتون</li>
+            </ul>
+        </div>
+
+        <div id="dinner" class="tab-content" style="display: none;">
+            <h3>🥩 شام</h3>
+            <ul>
+                <li>۱۵۰ گرم ماهی سالمون یا گوشت کم‌چرب</li>
+                <li>سیب‌زمینی آب‌پز یا کینوآ</li>
+                <li>یک لیوان ماست یونانی</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

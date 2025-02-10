@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>باشگاه بدنسازی جوان فیت - حرکات بالا سینه</title>
+  <style>
+    /* تنظیمات کلی صفحه */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tahoma', sans-serif;
+      background-color: #0D1B2A; /* آبی تیره */
+      color: #ffffff;
+      direction: rtl;
+    }
+    header {
+      background-color: #1B263B;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #FFB6C1; /* صورتی روشن */
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
+    /* منوی ناوبری */
+    nav {
+      background-color: #415A77;
+      /* در صورت بروز مشکل می‌توانید overflow را حذف کنید */
+      /* overflow: hidden; */
+      text-align: center;
+      padding: 10px 0;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown button {
+      background-color: #FFB6C1;
+      color: #0D1B2A;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .dropdown button:hover {
+      background-color: #ffc0cb;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #FFB6C1;
+      min-width: 220px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      right: 0;
+    }
+    .dropdown-content a {
+      color: #0D1B2A;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: right;
+    }
+    .dropdown-content a:hover {
+      background-color: #ffc0cb;
+    }
+  </style>
+</head>
+<body>
+  <!-- هدر -->
+  <header>
+    <h1>باشگاه بدنسازی جوان فیت</h1>
+    <p>حرکات کامل بالا سینه برای افزایش قدرت و حجم عضلانی</p>
+  </header>
+
+  <!-- منوی آبشاری -->
+  <nav>
+    <div class="dropdown">
+      <button id="dropdownButton">انتخاب حرکات</button>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="bench-press.html">پرس سینه تخت</a>
+        <a href="incline-press.html">پرس بالا سینه با شیب</a>
+        <a href="decline-press.html">پرس پایین سینه</a>
+        <a href="dumbbell-fly.html">فلای دمبل</a>
+        <a href="cable-fly.html">فلای کابل</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- محتوای اصلی -->
+  <main>
+    <section>
+      <h2>به باشگاه بدنسازی جوان فیت خوش آمدید</h2>
+      <p>لطفاً یکی از حرکات بالا سینه را از منوی بالا انتخاب کنید تا به صفحه توضیحات مربوط به آن هدایت شوید.</p>
+    </section>
+  </main>
+
+  <!-- فوتر -->
+  <footer>
+    <p>&copy; 2025 باشگاه بدنسازی جوان فیت. تمامی حقوق محفوظ است.</p>
+  </footer>
+
+  <!-- اسکریپت برای فعال کردن منوی کلیکی -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdownButton = document.getElementById('dropdownButton');
+      var dropdownContent = document.getElementById('dropdownContent');
+
+      dropdownButton.addEventListener('click', function(e) {
+        // تغییر نمایش منو بین 'block' و 'none'
+        if (dropdownContent.style.display === 'block') {
+          dropdownContent.style.display = 'none';
+        } else {
+          dropdownContent.style.display = 'block';
+        }
+        e.stopPropagation();
+      });
+
+      // با کلیک در هر جای دیگر، منو بسته شود
+      document.addEventListener('click', function() {
+        dropdownContent.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

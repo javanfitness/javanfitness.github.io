@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انتخاب حرکات بدنسازی</title>
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #1A237E; /* آبی تیره */
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #F8BBD0; /* صورتی روشن */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #1A237E;
+        }
+
+        .category {
+            background: white;
+            color: #1A237E;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .category:hover {
+            background: #E1BEE7; /* صورتی کمرنگ */
+        }
+
+        .exercises {
+            display: none;
+            background: #E1BEE7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .exercise {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: right;
+            margin: 5px 0;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .exercise label {
+            flex: 1;
+        }
+
+        .exercise img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1A237E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0D47A1;
+        }
+
+        #selected-exercises {
+            margin-top: 20px;
+            text-align: right;
+            color: #1A237E;
+            font-weight: bold;
+        }
+
+        .selected-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .selected-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>انتخاب حرکات بدنسازی</h2>
+
+        <!-- دسته‌بندی‌های ورزشی -->
+        <div class="category" onclick="toggleCategory('chest')">⬇ بالا سینه</div>
+        <div class="exercises" id="chest">
+            <div class="exercise">
+                <label><input type="checkbox" value="پرس سینه با هالتر" data-gif="https://gymfitclub.ir/public/images/articles/upload/barbell-bench-press.gif"> پرس سینه با هالتر</label>
+                <img src="https://gymfitclub.ir/public/images/articles/upload/barbell-bench-press.gif" alt="پرس سینه با هالتر">
+            </div>
+            <div class="exercise">
+                <label><input type="checkbox" value="پرس سینه با دمبل" data-gif="https://gymfitclub.ir/public/images/articles/upload/dumbbell-chest-press.gif"> پرس سینه با دمبل</label>
+                <img src="https://gymfitclub.ir/public/images/articles/upload/dumbbell-chest-press.gif" alt="پرس سینه با دمبل">
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('legs')">⬇ پا</div>
+        <div class="exercises" id="legs">
+            <div class="exercise">
+                <label><input type="checkbox" value="اسکات با هالتر" data-gif="https://bodybuildingha.com/wp-content/uploads/2022/04/barbell-full-squat.gif"> اسکات با هالتر</label>
+                <img src="https://bodybuildingha.com/wp-content/uploads/2022/04/barbell-full-squat.gif" alt="اسکات با هالتر">
+            </div>
+            <div class="exercise">
+                <label><input type="checkbox" value="پرس پا" data-gif="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSDJExAdvUCjguuRQ8yfe-aSIkzEnPDYePvg&s"> پرس پا</label>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSDJExAdvUCjguuRQ8yfe-aSIkzEnPDYePvg&s" alt="پرس پا">
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('abs')">⬇ شکم</div>
+        <div class="exercises" id="abs">
+            <div class="exercise">
+                <label><input type="checkbox" value="کرانچ" data-gif="https://mojekooh.com/wp-content/uploads/2023/09/%DA%A9%D8%B1%D8%A7%D9%86%DA%86-%D8%B4%DA%A9%D9%85.gif"> کرانچ</label>
+                <img src="https://mojekooh.com/wp-content/uploads/2023/09/%DA%A9%D8%B1%D8%A7%D9%86%DA%86-%D8%B4%DA%A9%D9%85.gif" alt="کرانچ">
+            </div>
+            <div class="exercise">
+                <label><input type="checkbox" value="پلانک" data-gif="https://gymfitclub.ir/public/images/articles/upload/planche-abdos.gif"> پلانک</label>
+                <img src="https://gymfitclub.ir/public/images/articles/upload/planche-abdos.gif" alt="پلانک">
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('cable')">⬇ سیم‌کش</div>
+        <div class="exercises" id="cable">
+            <div class="exercise">
+                <label><input type="checkbox" value="کراس اور" data-gif="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwfYbrQQXwQh4ASU5vQC5gJmkg8qsXrh92wA&s"> کراس اور</label>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwfYbrQQXwQh4ASU5vQC5gJmkg8qsXrh92wA&s" alt="کراس اور">
+            </div>
+            <div class="exercise">
+                <label><input type="checkbox" value="پشت بازو سیم‌کش" data-gif="https://media.lozi.shop/other/dd11a0e4-3f76-4530-826b-0c25f08a6cbc.gif"> پشت بازو سیم‌کش</label>
+                <img src="https://media.lozi.shop/other/dd11a0e4-3f76-4530-826b-0c25f08a6cbc.gif" alt="پشت بازو سیم‌کش">
+            </div>
+        </div>
+
+        <!-- دکمه ارسال -->
+        <div class="button-container">
+            <button onclick="submitSelection()">ارسال انتخاب‌ها</button>
+        </div>
+
+        <!-- نمایش حرکات انتخاب‌شده -->
+        <div id="selected-exercises"></div>
+    </div>
+
+    <script>
+        function toggleCategory(id) {
+            let category = document.getElementById(id);
+            category.style.display = category.style.display === "block" ? "none" : "block";
+        }
+
+        function submitSelection() {
+            let selectedExercises = document.querySelectorAll('input[type="checkbox"]:checked');
+            let selectedDiv = document.getElementById('selected-exercises');
+            selectedDiv.innerHTML = "<h3>حرکات انتخاب‌شده:</h3>";
+
+            if (selectedExercises.length === 0) {
+                selectedDiv.innerHTML += "<p style='color: red;'>لطفاً حداقل یک حرکت انتخاب کنید!</p>";
+                return;
+            }
+
+            selectedExercises.forEach(exercise => {
+                let gif = exercise.getAttribute("data-gif");
+                selectedDiv.innerHTML += `
+                    <div class="selected-item">
+                        <img src="${gif}" alt="${exercise.value}">
+                        <p>${exercise.value}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>

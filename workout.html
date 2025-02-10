@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انتخاب حرکات بالا سینه</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .exercise-select {
+            width: 300px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .exercise {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            text-align: center;
+            width: 250px;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .exercise img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .exercise h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .exercise .name {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        #selected-exercises {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>انتخاب حرکات بالا سینه</h2>
+        
+        <!-- فرم انتخاب حرکات -->
+        <div>
+            <select class="exercise-select" id="exerciseSelect" multiple>
+                <option value="barbell-incline-bench-press">پرس سینه با هالتر (زاویه بالا)</option>
+                <option value="dumbbell-incline-bench-press">پرس سینه با دمبل (زاویه بالا)</option>
+                <option value="machine-incline-chest-press">پرس سینه با دستگاه (زاویه بالا)</option>
+                <option value="dumbbell-incline-chest-fly">فلای سینه با دمبل (زاویه بالا)</option>
+                <option value="stability-ball-bench-press">پرس سینه با توپ</option>
+                <option value="cable-incline-chest-press">پرس سینه با سیم‌کش (زاویه بالا)</option>
+                <option value="cable-incline-chest-fly">فلای سینه با سیم‌کش (زاویه بالا)</option>
+                <option value="incline-push-up">پوش آپ با زاویه بالا</option>
+                <option value="smith-machine-incline-bench-press">پرس سینه با دستگاه اسمیت (زاویه بالا)</option>
+                <option value="barbell-decline-bench-press">پرس سینه با هالتر (زاویه منفی)</option>
+                <option value="dumbbell-decline-bench-press">پرس سینه با دمبل (زاویه منفی)</option>
+                <option value="standing-machine-chest-press">پرس سینه ایستاده با دستگاه</option>
+                <option value="landmine-press">پرس لندماین</option>
+            </select>
+        </div>
+
+        <!-- دکمه ارسال -->
+        <div class="button-container">
+            <button onclick="submitSelection()">ارسال انتخاب‌ها</button>
+        </div>
+
+        <!-- نمایش حرکات انتخاب‌شده -->
+        <div id="selected-exercises"></div>
+    </div>
+
+    <script>
+        const exerciseData = {
+            "barbell-incline-bench-press": {
+                name: "پرس سینه با هالتر (زاویه بالا)",
+                gif: "https://media.giphy.com/media/3oEjI5Z6bX3gYPJXas/giphy.gif"
+            },
+            "dumbbell-incline-bench-press": {
+                name: "پرس سینه با دمبل (زاویه بالا)",
+                gif: "https://media.giphy.com/media/l0MYEoygk8VOg1bwm/giphy.gif"
+            },
+            "machine-incline-chest-press": {
+                name: "پرس سینه با دستگاه (زاویه بالا)",
+                gif: "https://media.giphy.com/media/l2Jz2gQFj0f04ZT3K/giphy.gif"
+            },
+            "dumbbell-incline-chest-fly": {
+                name: "فلای سینه با دمبل (زاویه بالا)",
+                gif: ""
+            },
+            "stability-ball-bench-press": {
+                name: "پرس سینه با توپ",
+                gif: "https://media.giphy.com/media/l2YTVnX8jL8Dh0K44/giphy.gif"
+            },
+            "cable-incline-chest-press": {
+                name: "پرس سینه با سیم‌کش (زاویه بالا)",
+                gif: "https://media.giphy.com/media/3oEjI5Z6bX3gYPJXas/giphy.gif"
+            },
+            "cable-incline-chest-fly": {
+                name: "فلای سینه با سیم‌کش (زاویه بالا)",
+                gif: "https://media.giphy.com/media/xT5LMLtJ60A1Jya48g/giphy.gif"
+            },
+            "incline-push-up": {
+                name: "پوش آپ با زاویه بالا",
+                gif: "https://media.giphy.com/media/xTiTnHAU6vh6qXU8VK/giphy.gif"
+            },
+            "smith-machine-incline-bench-press": {
+                name: "پرس سینه با دستگاه اسمیت (زاویه بالا)",
+                gif: "https://media.giphy.com/media/3oEjI5Z6bX3gYPJXas/giphy.gif"
+            },
+            "barbell-decline-bench-press": {
+                name: "پرس سینه با هالتر (زاویه منفی)",
+                gif: "https://media.giphy.com/media/l2Jz2gQFj0f04ZT3K/giphy.gif"
+            },
+            "dumbbell-decline-bench-press": {
+                name: "پرس سینه با دمبل (زاویه منفی)",
+                gif: "https://media.giphy.com/media/l2YTVnX8jL8Dh0K44/giphy.gif"
+            },
+            "standing-machine-chest-press": {
+                name: "پرس سینه ایستاده با دستگاه",
+                gif: "https://media.giphy.com/media/l2Jz2gQFj0f04ZT3K/giphy.gif"
+            },
+            "landmine-press": {
+                name: "پرس لندماین",
+                gif: "https://media.giphy.com/media/3oEjI5Z6bX3gYPJXas/giphy.gif"
+            }
+        };
+
+        function submitSelection() {
+            const selectedExercises = document.getElementById('exerciseSelect').selectedOptions;
+            const selectedExercisesDiv = document.getElementById('selected-exercises');
+            selectedExercisesDiv.innerHTML = ''; // Clear previous selections
+
+            Array.from(selectedExercises).forEach(option => {
+                const exercise = exerciseData[option.value];
+                const exerciseDiv = document.createElement('div');
+                exerciseDiv.classList.add('exercise');
+                exerciseDiv.innerHTML = `
+                    <img src="${exercise.gif}" alt="${exercise.name}">
+                    <h3><span class="name">${exercise.name}</span></h3>
+                `;
+                selectedExercisesDiv.appendChild(exerciseDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>
