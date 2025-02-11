@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جوان فیت مترجم</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e2a47; /* آبی تیره */
+            color: #f5a5c0; /* صورتی روشن */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #f5a5c0;
+        }
+        .container {
+            text-align: center;
+            background-color: #2f3c6e; /* آبی تیره تر */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        #chat-box {
+            width: 100%;
+            height: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        #user-input {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        select {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f5a5c0;
+            border: none;
+        }
+        button {
+            padding: 10px;
+            background-color: #f5a5c0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e08eab;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>جوان فیت مترجم</h1>
+    
+    <div class="container">
+        <div id="chat-box">
+            <p><strong>جوان فیت بات:</strong> لطفاً متن خود را وارد کنید تا ترجمه شود.</p>
+        </div>
+        
+        <!-- منوی انتخاب زبان -->
+        <select id="language-select">
+            <option value="en|fa">انگلیسی به فارسی</option>
+            <option value="fa|en">فارسی به انگلیسی</option>
+        </select>
+        
+        <!-- ورودی متن -->
+        <input type="text" id="user-input" placeholder="متن خود را وارد کنید...">
+        
+        <!-- دکمه ارسال -->
+        <button onclick="translateText()">ترجمه</button>
+    </div>
+
+    <script>
+        async function translateText() {
+            let text = document.getElementById("user-input").value;
+            let chatBox = document.getElementById("chat-box");
+
+            if (text.trim() === "") return;
+
+            chatBox.innerHTML += `<p><strong>شما:</strong> ${text}</p>`;
+
+            let selectedLang = document.getElementById("language-select").value;
+            let [sourceLang, targetLang] = selectedLang.split('|');
+            
+            let translatedText = await getTranslation(text, sourceLang, targetLang);
+            chatBox.innerHTML += `<p><strong>چت‌بات (ترجمه):</strong> ${translatedText}</p>`;
+
+            document.getElementById("user-input").value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function getTranslation(text, sourceLang, targetLang) {
+            try {
+                let response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`);
+                let data = await response.json();
+                return data.responseData.translatedText;
+            } catch (error) {
+                return "ترجمه ناموفق! لطفاً دوباره امتحان کنید.";
+            }
+        }
+    </script>
+
+</body>
+</html>
